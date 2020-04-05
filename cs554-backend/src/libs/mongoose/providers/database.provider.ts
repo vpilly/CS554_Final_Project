@@ -8,11 +8,15 @@ export const databaseProvider: Provider = {
   provide: DATABASE_CONNECTION,
   useFactory: (configService: ConfigService): Promise<typeof mongoose> => {
     const database = configService.get('database');
-    return mongoose.connect(`mongodb://${database.host}:${database.port}`, {
-      db: database.db,
-      user: database.user,
-      pass: database.pass,
-    });
+    return mongoose.connect(
+      `mongodb://${database.host}:${database.port}/${database.db}`,
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        user: database.user,
+        pass: database.pass,
+      },
+    );
   },
   inject: [ConfigService],
 };
