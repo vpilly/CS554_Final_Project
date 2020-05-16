@@ -1,9 +1,9 @@
 version: "3.3"
 services:
-  redis:
-    image: redis
+  rabbit:
+    image: rabbitmq
     ports:
-      - "6379:6379"
+      - "5672:5672"
   mongo:
     image: mongo
     ports:
