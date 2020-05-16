@@ -14,6 +14,7 @@ import { APP_GUARD } from '@nestjs/core';
     UserModule,
     GraphQLModule.forRoot({
       autoSchemaFile: true,
+      context: ({ req }) => ({ ...req }),
     }),
   ],
   providers: [
