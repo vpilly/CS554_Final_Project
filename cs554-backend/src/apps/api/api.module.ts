@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
-import { HealthzController } from './controllers';
 import config from '../../configuration/configuration';
 import { UserModule } from '../../libs/user/user.module';
 import { UserResolver } from './resolvers';
+import { AuthService } from './services/auth/auth.service';
+import { FirebaseGuard } from './guards/firebase.guard';
+import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -14,7 +16,13 @@ import { UserResolver } from './resolvers';
       autoSchemaFile: true,
     }),
   ],
-  controllers: [HealthzController],
-  providers: [UserResolver],
+  providers: [
+    UserResolver,
+    AuthService,
+    {
+      provide: APP_GUARD,
+      useClass: FirebaseGuard,
+    },
+  ],
 })
 export class ApiModule {}
