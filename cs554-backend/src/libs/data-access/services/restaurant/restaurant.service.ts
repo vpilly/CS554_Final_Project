@@ -19,9 +19,14 @@ export class RestaurantService {
     return this.restaurantModel.find().exec();
   }
 
+  async findById(restaurantId: string): Promise<Restaurant> {
+    return this.restaurantModel.findById(restaurantId).exec();
+  }
+
   async update(
     restaurantId: string,
     newInfo: Partial<RestaurantCreateInput>,
+    userId: string,
   ): Promise<Restaurant> {
     return this.restaurantModel
       .updateOne({ _id: restaurantId }, { ...newInfo })

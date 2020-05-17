@@ -39,15 +39,15 @@ export class ReservationService {
     return this.reservationModel.find({ restaurantId }).exec();
   }
 
-  async update(
-    restaurantId: string,
-    reservationTime: Date,
-    userId: string,
-  ): Promise<Reservation> {
+  async update(updateDto: ReservationCreateInput): Promise<Reservation> {
     const now = new Date();
-    if (now > reservationTime) throw new Error('Invalid Updated Date');
+    if (now > updateDto.reservationTime)
+      throw new Error('Invalid Updated Date');
     return this.reservationModel
-      .updateOne({ restaurantId, userId }, { reservationTime })
+      .updateOne(
+        { restaurantId: updateDto.restaurantId, userId: updateDto.userId },
+        { reservationTime: updateDto.reservationTime },
+      )
       .exec();
   }
 

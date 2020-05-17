@@ -5,7 +5,7 @@ export const MenuItemSchema = new Schema({
   price: Number,
 });
 
-export interface MenuItem extends Document {
+export interface MenuItem {
   readonly item: string;
   readonly price: number;
 }

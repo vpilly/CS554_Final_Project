@@ -8,4 +8,7 @@ export class AuthService {
   verifyUser(token: string): Promise<admin.auth.DecodedIdToken> {
     return admin.auth().verifyIdToken(token);
   }
+  getUserById(id: string) {
+    return admin.auth().getUser(id);
+  }
 }

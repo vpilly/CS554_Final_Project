@@ -4,7 +4,7 @@ import { Favorite, Restaurant } from 'src/libs/mongoose/schemas';
 import { FavoriteCreateInput } from '../../interfaces';
 
 @Injectable()
-export class FavoritesService {
+export class FavoriteService {
   constructor(
     @Inject('FAVORITE_MODEL')
     private favoriteModel: Model<Favorite>,
