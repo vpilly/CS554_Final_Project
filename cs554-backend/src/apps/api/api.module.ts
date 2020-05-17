@@ -11,6 +11,7 @@ import { AuthService } from './services/auth/auth.service';
 import { FirebaseGuard } from './guards/firebase.guard';
 import { APP_GUARD } from '@nestjs/core';
 import { DataAccessModule } from 'src/libs/data-access/data-access.module';
+import { ReservationsGateway } from './gateways/reservations.gateway';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { DataAccessModule } from 'src/libs/data-access/data-access.module';
       provide: APP_GUARD,
       useClass: FirebaseGuard,
     },
+    ReservationsGateway,
   ],
 })
 export class ApiModule {}

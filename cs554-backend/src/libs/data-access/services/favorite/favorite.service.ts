@@ -17,6 +17,10 @@ export class FavoriteService {
       .findById(createDto.restaurantId)
       .exec();
     if (!restaurant) throw new Error('Restaurant does not exist');
+    const fav = await this.favoriteModel
+      .find({ userId: createDto.userId, restaurantId: createDto.restaurantId })
+      .exec();
+    if (fav.length > 0) throw new Error('Favorite already exists');
     const createdFav = new this.favoriteModel(createDto);
     return createdFav.save();
   }

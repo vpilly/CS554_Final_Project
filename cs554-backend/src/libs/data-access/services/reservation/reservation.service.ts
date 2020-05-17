@@ -51,7 +51,7 @@ export class ReservationService {
       .exec();
   }
 
-  async delete(userId: string, restaurantId: string) {
-    return this.reservationModel.deleteOne({ userId, restaurantId }).exec();
+  async delete(id: string, userId: string) {
+    return this.reservationModel.deleteOne({ _id: id, userId }).exec();
   }
 }

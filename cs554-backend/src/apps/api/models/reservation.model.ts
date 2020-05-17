@@ -13,6 +13,9 @@ export class ReservationModel {
   @Field()
   reservationTime: Date;
 
+  @Field()
+  numberOfPeople: number;
+
   @Field(type => ID)
   id?: string;
 }
@@ -23,4 +26,6 @@ export class ReservationCreateInput {
   restaurantId: string;
   @Field()
   reservationTime: Date;
+  @Field()
+  numberOfPeople: number;
 }
