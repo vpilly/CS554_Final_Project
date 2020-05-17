@@ -27,8 +27,4 @@ export class RestaurantService {
       .updateOne({ _id: restaurantId }, { ...newInfo })
       .exec();
   }
-
-  async delete(restaurantId: string) {
-    return this.restaurantModel.deleteOne({ _id: restaurantId }).exec();
-  }
 }
