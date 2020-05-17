@@ -29,7 +29,7 @@ export class RestaurantService {
     userId: string,
   ): Promise<Restaurant> {
     return this.restaurantModel
-      .updateOne({ _id: restaurantId }, { ...newInfo })
+      .updateOne({ _id: restaurantId, createdBy: userId }, { ...newInfo })
       .exec();
   }
 }

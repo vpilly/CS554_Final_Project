@@ -8,6 +8,12 @@ export class RestaurantModel {
   createdBy: UserModel;
 
   @Field()
+  name: string;
+
+  @Field()
+  pricing: string;
+
+  @Field()
   description: string;
 
   @Field()
@@ -29,6 +35,12 @@ export class RestaurantModel {
 @InputType('RestaurantCreateInput')
 export class RestaurantCreateInput {
   @Field()
+  name: string;
+
+  @Field()
+  pricing: string;
+
+  @Field()
   description: string;
 
   @Field()
@@ -42,4 +54,28 @@ export class RestaurantCreateInput {
 
   @Field(type => [MenuItemCreateInput])
   menu: MenuItemCreateInput[];
+}
+
+@InputType('RestaurantUpdateInput')
+export class RestaurantUpdateInput {
+  @Field()
+  name?: string;
+
+  @Field()
+  pricing?: string;
+
+  @Field()
+  description?: string;
+
+  @Field()
+  hoursOpen?: string;
+
+  @Field()
+  foodType?: string;
+
+  @Field()
+  location?: string;
+
+  @Field(type => [MenuItemCreateInput])
+  menu?: MenuItemCreateInput[];
 }
