@@ -4,8 +4,9 @@ import ResultsSummary from "./ResultsSummary/ResultsSummary";
 import SearchResults from "./SearchResults/SearchResults";
 
 import React, { Component } from "react";
-import axios from "axios";
 import { getRestaurantByFilter } from "../../api/Restaurant";
+import { deleteFavorite, createFavorite } from "../../api/Favorite";
+import { createReservation } from "../../api/Reservation";
 
 class Search extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class Search extends Component {
       restraunts: [],
       foodType: null,
       pricing: null,
+      reservationTime: new Date(),
     };
   }
 
@@ -33,19 +35,25 @@ class Search extends Component {
     }
   };
 
-  handleFavoriteChange = (event) => {
-    console.log(event.target);
-
-    if (event.target.className === "fas fa-star") {
-      // TODO: delete favorite
-    } else {
-      //TODO: create favorite
-    }
+  handleFavoriteChange = async (event) => {
     const { restraunts } = this.state;
     const restraunt = restraunts.find(({ id }) => event.target.value === id);
+    if (restraunt.isFavorite) {
+      await deleteFavorite(restraunt.id);
+    } else {
+      await createFavorite(restraunt.id);
+    }
+
     restraunt.isFavorite = !restraunt.isFavorite;
-    console.log(restraunt);
     this.setState({ restraunts });
+  };
+
+  handleRestrauntSelection = async (event) => {
+    createReservation(event.target.value, this.state.reservationTime);
+  };
+
+  handleResevationCreation = async (event) => {
+    this.setState({ reservationTime: event });
   };
 
   async getRest() {
@@ -63,17 +71,11 @@ class Search extends Component {
   }
 
   render() {
-    const peopleParam = 0;
     const dateParam = new Date();
-    const locationParam = "";
     const { restraunts } = this.state;
     return (
       <div>
-        <NavBar
-          people={peopleParam}
-          date={dateParam}
-          location={locationParam}
-        />
+        <NavBar date={dateParam} onChange={this.handleResevationCreation} />
         <ResultsSummary
           count={this.state.restraunts.length}
           onFilterClear={this.handleClearFilters}
@@ -82,6 +84,7 @@ class Search extends Component {
         <SearchResults
           restraunts={restraunts}
           onFavoriteChange={this.handleFavoriteChange}
+          onSelectionChange={this.handleRestrauntSelection}
         />
       </div>
     );

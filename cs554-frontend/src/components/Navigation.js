@@ -19,8 +19,13 @@ const NavigationAuth = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink exact to="/account" activeClassName="active">
-            Account
+          <NavLink exact to="/create" activeClassName="active">
+            Restaurant Creation
+          </NavLink>
+        </li>
+        <li>
+          <NavLink exact to="/reservations" activeClassName="active">
+            Reservation Info
           </NavLink>
         </li>
         <li>

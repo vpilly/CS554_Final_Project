@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { createRestaurant } from "../api/Restaurant";
 
 class RestaurantForm extends React.Component {
@@ -23,7 +22,7 @@ class RestaurantForm extends React.Component {
   handleSubmit = async (event) => {
     event.preventDefault();
     const hoursOpen = `${this.state.openingTime}-${this.state.closingTime}`;
-    const results = await createRestaurant(
+    await createRestaurant(
       this.state.name,
       this.state.description,
       this.state.location,
