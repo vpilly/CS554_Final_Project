@@ -15,6 +15,10 @@ export class RestaurantService {
     return createdRest.save();
   }
 
+  async find(criteria: Partial<Restaurant>) {
+    return this.restaurantModel.find(criteria).exec();
+  }
+
   async findAll(): Promise<Restaurant[]> {
     return this.restaurantModel.find().exec();
   }

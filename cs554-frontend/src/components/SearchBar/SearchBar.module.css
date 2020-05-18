@@ -1,0 +1,16 @@
+.input-control {
+    min-width: 320px;
+}
+
+:global(.button).search-button {
+    background: rgb(49, 162, 238);
+    border: none;
+}
+
+:global(.icon).search-icon {
+    color: white;
+}
+
+.dropdown-control {
+    min-width: 100;
+}

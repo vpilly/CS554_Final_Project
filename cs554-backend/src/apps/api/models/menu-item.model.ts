@@ -1,11 +1,11 @@
-import { Field, ObjectType, Int, InputType } from '@nestjs/graphql';
+import { Field, ObjectType, InputType, Float } from '@nestjs/graphql';
 
 @ObjectType('MenuItem')
 export class MenuItemModel {
   @Field()
   item: string;
 
-  @Field(type => Int)
+  @Field(type => Float)
   price: number;
 }
 
@@ -14,6 +14,6 @@ export class MenuItemCreateInput {
   @Field()
   item: string;
 
-  @Field(type => Int)
+  @Field(type => Float)
   price: number;
 }

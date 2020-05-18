@@ -25,6 +25,9 @@ export class RestaurantModel {
   @Field()
   location: string;
 
+  @Field()
+  isFavorite: boolean;
+
   @Field(type => [MenuItemModel])
   menu: MenuItemModel[];
 

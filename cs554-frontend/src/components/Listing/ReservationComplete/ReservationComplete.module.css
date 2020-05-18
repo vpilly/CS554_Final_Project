@@ -1,0 +1,19 @@
+.reserve-page-card{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 500px;
+    height: 400px;
+    padding: 1rem 1rem;
+}
+
+.container{
+    display: flex;
+    flex-flow: column;
+    padding: 2rem 10rem;
+    align-items: flex-start;
+}
+
+.body{
+    padding-bottom:1rem;
+}

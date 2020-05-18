@@ -29,6 +29,10 @@ export class FavoriteService {
     return this.favoriteModel.find().exec();
   }
 
+  async find(userId: string, restaurantId: string) {
+    return this.favoriteModel.findOne({ userId, restaurantId }).exec();
+  }
+
   async findByUserId(userId: string): Promise<Favorite[]> {
     return this.favoriteModel.find({ userId }).exec();
   }

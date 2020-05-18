@@ -1,0 +1,20 @@
+.search-result {
+    display: flex;
+    max-width: 1100px;
+    width: 100%;
+}
+
+.restaurant-image {
+    width: 210px;
+    height: 210px;
+    border-radius: 4px;
+    margin-right: 1rem;
+}
+
+.restaurant-info {
+    min-width: 400px;
+}
+
+.restaurant-next p {
+    font-size: .85rem;
+}
