@@ -34,20 +34,18 @@ class Search extends Component {
   };
 
   handleFavoriteChange = (event) => {
-    console.log(event);
-    if ((event.target.className = "fas fa-star")) {
+    console.log(event.target);
+
+    if (event.target.className === "fas fa-star") {
       // TODO: delete favorite
-      const { restraunts } = this.state;
-      const restraunt = restraunts.find(({ id }) => event.target.value);
-      restraunt.isFavorite = false;
-      this.setState({ restraunts });
     } else {
       //TODO: create favorite
-      const { restraunts } = this.state;
-      const restraunt = restraunts.find(({ id }) => event.target.value);
-      restraunt.isFavorite = true;
-      this.setState({ restraunts });
     }
+    const { restraunts } = this.state;
+    const restraunt = restraunts.find(({ id }) => event.target.value === id);
+    restraunt.isFavorite = !restraunt.isFavorite;
+    console.log(restraunt);
+    this.setState({ restraunts });
   };
 
   async getRest() {

@@ -4,7 +4,7 @@
 
 import React from "react";
 import styles from "./SearchResult.module.css";
-const SearchResult = ({ rest: props }) => {
+const SearchResult = ({ rest: props, onFavoriteChange }) => {
   return (
     <div className={styles["search-result"]}>
       <img
@@ -56,13 +56,26 @@ const SearchResult = ({ rest: props }) => {
         </p>
       </div>
       <div className={styles["restaurant-next"]}>
-        <div onClick={props.onFavoriteChange} value={props.id}>
-          {props.isFavorite ? (
-            <i className="fas fa-star" value={props.id}></i>
-          ) : (
-            <i className="far fa-star" value={props.id}></i>
-          )}
-        </div>
+        <button
+          className="favorite-icon"
+          value={props.id}
+          onClick={onFavoriteChange}
+        >
+          Toggle Favorite
+        </button>
+        {props.isFavorite ? (
+          <i
+            className="fas fa-star"
+            value={props.id}
+            onClick={onFavoriteChange}
+          ></i>
+        ) : (
+          <i
+            className="far fa-star"
+            value={props.id}
+            onClick={onFavoriteChange}
+          ></i>
+        )}
 
         {/* 
             resturant owner posts this as string when giving restaurant info on /restaurant.
@@ -78,4 +91,5 @@ const SearchResult = ({ rest: props }) => {
     </div>
   );
 };
+
 export default SearchResult;

@@ -6,7 +6,7 @@ import React from "react";
 import styles from "./SearchResults.module.css";
 import SearchResult from "./SearchResult/SearchResult";
 
-const SearchResults = ({ restraunts: props }) => {
+const SearchResults = ({ restraunts: props, onFavoriteChange }) => {
   return (
     <div className={styles["search-results"]}>
       {props.map((rest, index) => {
@@ -14,7 +14,7 @@ const SearchResults = ({ restraunts: props }) => {
           <SearchResult
             rest={rest}
             key={`rest-` + index}
-            onFavoriteChange={props.onFavoriteChange}
+            onFavoriteChange={onFavoriteChange}
           ></SearchResult>
         );
       })}
