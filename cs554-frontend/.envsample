@@ -1,0 +1,7 @@
+REACT_APP_FIREBASE_KEY = "AIzaSyALoylSNz-hdn7T_kcW5nLUMU__ruME94s"
+REACT_APP_FIREBASE_DOMAIN = "cs554finalprogres-f9eae.firebaseapp.com"
+REACT_APP_FIREBASE_DATABASE = "https://cs554firstproject-f8ebe.firebaseio.com"
+REACT_APP_FIREBASE_PROJECT_ID = "cs554finalproject-f0eab"
+REACT_APP_FIREBASE_STORAGE_BUCKET = "cs554finalproject-f0eab.appspot.com"
+REACT_APP_FIREBASE_SENDER_ID = "168012345678"
+REACT_APP_FIREBASE_APP_ID = "1:12345678154:web:f071e15a57af28f461239b"

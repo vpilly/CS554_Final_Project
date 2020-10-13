@@ -1,0 +1,5 @@
+MONGO_PORT=[Port that mongo server runs on]
+MONGO_HOST=[Host of mongo server]
+MONGO_DB=[Name of mongo database]
+API_PORT=[Port that the backend server uses to run]
+GOOGLE_APPLICATION_CREDENTIALS=/home/vpilly/Downloads/cs554finalproject-f9eae-firebase-adminsdk-aze5k-e787aba081.json

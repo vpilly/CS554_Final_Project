@@ -1,0 +1,5 @@
+MONGO_PORT=[Port of mongo server]
+MONGO_HOST=[Host of mongo server]
+MONGO_DB=[Name of Mongo database]
+API_PORT=[Port that backend webserver runs on]
+GOOGLE_APPLICATION_CREDENTIALS=[Path to firebase credentials file]

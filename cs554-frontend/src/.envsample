@@ -1,0 +1,5 @@
+MONGO_PORT=27017
+MONGO_HOST=localhost
+MONGO_DB=main
+API_PORT=3000
+GOOGLE_APPLICATION_CREDENTIALS=/home/vpilly/Downloads/cs554finalproject-f9eae-firebase-adminsdk-aze5k-e787aba081.json
